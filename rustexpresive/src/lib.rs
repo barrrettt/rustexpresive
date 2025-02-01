@@ -12,4 +12,14 @@ pub fn execute(expresion: String) -> Result<bool, String> {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use crate::execute;
 
+
+    #[test]
+    fn test_complex_logic() {
+        let input = "((true && false) || true) && !(false || true) && !(true && false)";
+        assert_eq!(execute(input.to_string()).unwrap(), false);
+    }
+}
